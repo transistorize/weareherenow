@@ -55,6 +55,7 @@ public class URLSearchMethod extends SearchMethod
         //read and parse the entire result
         reader = new InputStreamReader(connection.getInputStream(), "UTF-8");
         rawJSON = readJSONResponse(reader);
+        reader.close();
         List<Venue> venues = getProvider().getLocations(rawJSON);
         return new SearchResponse(venues, available);
       }

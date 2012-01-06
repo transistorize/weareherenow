@@ -45,7 +45,7 @@ public class DBStatementWriter
         + DB_Y_ATTR            + " decimal(12,5) not null, "
         + DB_CATEGORIES_1_ATTR + " text,"
         + DB_CATEGORIES_2_ATTR + " text,"
-        + DB_HERE_NOW_ATTR     + " text,"
+        + DB_HERE_NOW_ATTR     + " text not null,"
         + DB_TIMESTAMP_ATTR    + " timestamp);");
   }
 

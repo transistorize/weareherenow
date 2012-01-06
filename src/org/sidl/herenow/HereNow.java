@@ -102,7 +102,7 @@ public class HereNow
         return;
       }
 
-      cleanTable(connection, config.getTableName());
+      //cleanTable(connection, config.getTableName());
       logTable(connection, config.getTableName());
 
       executeWebQueries(centroids, endpoints, connection, config.getTableName(),
