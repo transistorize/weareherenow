@@ -29,7 +29,8 @@ public class DBStatementWriter
     {
       builder.append(md.getColumnTypeName(count)).append(", ");
     }
-
+    stmt.close();
+    rs.close();
     LOG.info(builder.toString());
   }
 
@@ -47,6 +48,7 @@ public class DBStatementWriter
         + DB_CATEGORIES_2_ATTR + " text,"
         + DB_HERE_NOW_ATTR     + " text not null,"
         + DB_TIMESTAMP_ATTR    + " timestamp);");
+    stmt.close();
   }
 
   public int[] write(List<Venue> venues, long timestamp) throws SQLException
@@ -83,6 +85,8 @@ public class DBStatementWriter
     update = prep.executeBatch();
     connection.pipe().setAutoCommit(true);
 
+    prep.close();
+    
     if (LOG.isLoggable(Level.FINE))
       logDBStats(connection, timestamp);
 
@@ -115,6 +119,8 @@ public class DBStatementWriter
       LOG.fine("Rows in table: " + rs.getString("count(" + DB_ID_ATTR + ")"));
     }
 
+    rs.close();
+    stmt.close();
   }
   
   
