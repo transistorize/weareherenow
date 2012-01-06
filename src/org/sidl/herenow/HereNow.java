@@ -140,7 +140,7 @@ public class HereNow
 
       while (locations.hasNext() && isRunning.get())
       {
-        int count = 0;
+        int count = 50;
 
         while (count < maxOutstandingRequests && locations.hasNext() && isRunning.get())
         {
@@ -177,7 +177,8 @@ public class HereNow
           }
         }
 
-        LOG.info(count + " of " + centroids.size() + " points searched");
+        LOG.info((engine.searchesMade() %  centroids.size())  + " of " + centroids.size() +
+            " points searched");
         engine.logStats(LOG);
       }
 
@@ -447,7 +448,8 @@ public class HereNow
     {
       int records = writeVenuesToDB(connection, tableName, timestamp, values);
       totalRecords += records;
-      LOG.log(Level.INFO, "Records just written: " + records + "  Total Records: " + totalRecords);
+      LOG.log(Level.INFO, "Records just written: " + records +
+          "  Total records processed: " + totalRecords);
     }
   }
 
@@ -487,7 +489,7 @@ public class HereNow
   }
   
   
-  private AtomicBoolean isRunning = new AtomicBoolean(true);
+  private final AtomicBoolean isRunning = new AtomicBoolean(true);
 
   private int totalRecords = 0;
   

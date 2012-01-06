@@ -7,6 +7,7 @@ if [ ! -f "logs" ]; then
 fi
 
 java -server -cp json.jar:mysql.jar:herenow.jar \
+     -XX:-PrintClassHistogram -XX:-HeapDumpOnOutOfMemoryError -verbose:gc  \
      -Djava.util.logging.config.file="logging.properties" \
      org.sidl.herenow.HereNow \
      weareherenow_prod.properties Grid_Centroids_500_random.csv client_ids.csv
