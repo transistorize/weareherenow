@@ -112,6 +112,7 @@ public class DBStatementWriter
       LOG.fine(String.format("%s %s %s %s", rs.getString(DB_ID_ATTR), rs.getString(DB_NAME_ATTR),
           rs.getString(DB_TIMESTAMP_ATTR), rs.getString(DB_HERE_NOW_ATTR)));
     }
+    rs.close();
 
     rs = stmt.executeQuery("select count(" + DB_ID_ATTR + ") from " + table);
     while (rs.next())
