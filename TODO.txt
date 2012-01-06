@@ -1,0 +1,15 @@
+POST Version 0.1
+
+1 - Responses can come back out of order, and the bookkeeping to track the # of available sources
+    is pretty relaxed. This should be fixed in the future.
+2 - Unit tests need to be beefed up, including those hard to test areas like DB calls.
+3 - The current program uses raw HTTP and JDBC interfaces. I needed to learn more about those
+    interfaces, and this was a good project for that. Future versions might move to use packages
+    that automatically handle the object-relational mapping.
+4 - The packages need to have their documentation strengthened.
+5 - Maybe use an alternative logging package.
+6 - Get ANT configured. Right now, shell scripts and command-line compiles are doing the building
+    and deployment.
+7 - Explore moving to JRuby to make maintenance easier for students.
+8 - Throttle limits need to be more configurable.
+9 - Turn down the logging in the logging.properties or the code.
