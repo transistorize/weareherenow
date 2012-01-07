@@ -29,8 +29,10 @@ public class DBStatementWriter
     {
       builder.append(md.getColumnTypeName(count)).append(", ");
     }
-    stmt.close();
+
     rs.close();
+    stmt.close();
+
     LOG.info(builder.toString());
   }
 

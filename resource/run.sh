@@ -7,6 +7,9 @@ if [ ! -f "logs" ]; then
 fi
 
 java -server -cp json.jar:mysql.jar:herenow.jar \
+     -Xms300m -Xmx900m \
+     -XX:-PrintCommandLineFlags -XX:-PrintGCDetails \
+     -XX:-PrintTenuringDistribution -XX:+HeapDumpOnCtrlBreak \
      -XX:-PrintClassHistogram -XX:-HeapDumpOnOutOfMemoryError -verbose:gc  \
      -Djava.util.logging.config.file="logging.properties" \
      org.sidl.herenow.HereNow \

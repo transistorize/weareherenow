@@ -271,7 +271,6 @@ public class HereNow
     }
   }
 
-
   private void stop(String message, Exception e)
   {
     isRunning.set(false);
